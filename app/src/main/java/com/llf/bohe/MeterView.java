@@ -31,7 +31,6 @@ public class MeterView extends View {
     private int totalLine;//总共有多少根线
     private float mOffset, mMaxOffset;//默认状态下尺子所在的位置
     private Paint linePaint, textPaint;
-    private float textHeight;//文字距离刻度的高度
     private float mXDown;
     private float mXMove;
     private float mXLastMove, mMove;//上次移动的位置和需要移动的距离
@@ -64,8 +63,6 @@ public class MeterView extends View {
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setColor(textColor);
         textPaint.setTextSize(textSize);
-
-        textHeight = getFontHeight(textPaint);//基线的位置
     }
 
     @Override
@@ -94,7 +91,7 @@ public class MeterView extends View {
             if (i % 10 == 0) {
                 String value = String.valueOf((int) (mineValue + i * perValue / 10));
                 canvas.drawText(value, left - textPaint.measureText(value) / 2,
-                        height + textMarginTop + textHeight, textPaint);
+                        height + textMarginTop - textPaint.getFontMetrics().top, textPaint);
             }
         }
     }
@@ -181,10 +178,5 @@ public class MeterView extends View {
      */
     public interface OnValueChangeListener {
         void onValueChange(float value);
-    }
-
-    private float getFontHeight(Paint paint) {
-        Paint.FontMetrics fm = paint.getFontMetrics();
-        return fm.descent - fm.ascent;
     }
 }
