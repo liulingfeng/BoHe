@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.llf.bohe.MainActivity"
+    android:background="@android:color/white"
+    >
+
+    <com.llf.bohe.MeterView
+        android:id="@+id/meterView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#F8F8F8"
+        app:lineMaxHeight="36dp"
+        app:lineMinHeight="24dp"
+        app:textSize="18sp"
+        app:textMarginTop="8dp"
+        />
+
+    <View
+        android:layout_width="3dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/radiu_green"
+        />
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/meterView"
+        android:layout_marginTop="24dp"
+        android:textColor="#69C876"
+        />
+</RelativeLayout>
