@@ -56,7 +56,8 @@ public class MeterView extends View {
         lineSpace = array.getDimension(R.styleable.MeterView_lineSpace, 24);
         lineMinHeight = array.getDimension(R.styleable.MeterView_lineMinHeight, 40);
         lineMaxHeight = array.getDimension(R.styleable.MeterView_lineMaxHeight, 60);//这两个根据高度来取比较合理
-
+        array.recycle();
+        
         linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         linePaint.setColor(lineColor);
         linePaint.setStrokeWidth(lineWidth);
